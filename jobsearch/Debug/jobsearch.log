@@ -1,3 +1,0 @@
-﻿  Source.c
-C:\Users\PC\source\repos\jobsearch\jobsearch\Source.c(35,27): warning C4013: 'checkifidexist' undefined; assuming extern returning int
-  jobsearch.vcxproj -> C:\Users\PC\source\repos\jobsearch\Debug\jobsearch.exe
