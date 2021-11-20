@@ -57,6 +57,7 @@ int checkifidexist(char string[9])
 int main()
 {
     signupcandid();
+    //for git example
     //FILE* stream = fopen("test1.csv", "r");
 
     //char line[1024];
