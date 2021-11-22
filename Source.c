@@ -11,6 +11,14 @@
 #include <stdlib.h>
 #include <string.h>
 
+static char curid[9];//to use the id of the current user in every function
+static int type;//to check the type of user in every function
+void mainmenu();
+
+void employerentermenu()
+{
+
+}
 char* entergoodid()
 {
     //this func print to ented id and check if its could be a good id
@@ -20,7 +28,7 @@ char* entergoodid()
     printf("enter your ID : \n");
     while (tmp == 1)
     {
-        scanf("%s", id);
+        scanf("%s", &id);
         tmp = 0;
         if (strlen(id) != 9)
         {
@@ -60,6 +68,12 @@ void signupcandid()
 {
 
     char string[50];
+    char city[50];
+    char age[10];
+    char address[50];
+    char phone[50];
+    char email[50];
+    char name[50];
     char password[30];
     /*printf("enter your ID : \n");
     scanf("%s", string);
@@ -72,19 +86,49 @@ void signupcandid()
     int b = checkifidexist(string);
     if (b != 0)
     {
-        printf("exist");
-        return 0;
+        printf("exist\n");
+        strcpy(string, entergoodid());
+        b = checkifidexist(string);
     }
     printf("valid id\n");
     printf("enter 8 digit password with 1 letter and 1 number : \n");
-    scanf("%s", password);
+    scanf("%s", &password);
     b = checkpassword(password);
     while ((strlen(password) < 8)||b==0)
     {
         printf("enter 8 digit password : \n");
-        scanf("%s", password);
+        scanf("%s", &password);
         b = checkpassword(password);
     }
+    printf("enter your name :\n ");
+    //check for better sulotion
+    getchar();
+    gets(name);
+    printf("enter your age : \n");
+    scanf("%s", &age);
+    printf("enter your email : \n");
+    scanf("%s", &email);
+    printf("enter your phone number : \n");
+    scanf("%s", &phone);
+    printf("enter your city : \n");
+    scanf("%s", &city);
+    printf("enter your address : \n");
+    scanf("%s", &address);
+    
+    /*here gonne be the quiz for thr candid
+    every answer gonne add to string
+    and every char int he string goonne be answer for one quiestion
+    just for simple im gonne simple string */
+    //the field int the csv file gonne be like that
+    // |id| |password| |name| |age| |email| |phone| |city| |address| |quiz answer|
+    FILE* fpt;
+    fpt = fopen("candidate.csv", "a");
+    fprintf(fpt, "%s,%s,%s,%s,%s,%s,%s,%s,%s\n", string, password, name, age, email, phone, city, address, "asdasda");
+    fclose(fpt);
+
+
+
+
 
 }
 int checkifidexist(char string[50])
@@ -133,7 +177,6 @@ int checkpassword(char string[30])
     else
         return 0;
 }
-
 int checkpasswordtoid(char id[10], char password[30])
 {
     //this fun get the id and the password apper in the csv file and return 1 if its match 0 if not
@@ -158,33 +201,80 @@ int checkpasswordtoid(char id[10], char password[30])
     return 0;
 
 }
-
 void signincandid()
 {
     char id[10];
     strcpy(id, entergoodid());
     int row = checkifidexist(id);
-    if (row == 0)
+    while (row == 0)
     {
-        printf("doesnt exist");
-        return ;
+        printf("doesnt exist\n");
+        strcpy(id, entergoodid());
+        row = checkifidexist(id);
     }
     char password[30];
     printf("enter password\n");
-    scanf("%s", password);
+    scanf("%s", &password);
     while (checkpasswordtoid(id, password) == 0)
     {
         printf("wrong!, enter password again\n");
-        scanf("%s", password);
+        scanf("%s", &password);
     }
 
 }
+void candidentermenu()
+{
+    int choice;
+    printf("Please choose:\n");
+    printf("1 - Log in\n");
+    printf("2 - Create New Account\n");
+    printf("0 - Back to the main menu \n");
+    scanf("%d", &choice);
+    while (choice != 1 && choice != 2 && choice != 0)
+    {
+        printf("Please choose one of the option:\n");
+        printf("1 - Log in\n");
+        printf("2 - Create New Account\n");
+        printf("0 - Back to the main menu \n");
+        scanf("%d", &choice);
+    }
+    if (choice == 1)
+        signincandid();
+    else if (choice == 2)
+        signupcandid();
+    else if (choice == 0)
+        mainmenu();
+}
+void mainmenu()
+{
+    int choice=0;
+    printf("Welcome to the Search High.Job\n");
+    printf("Please choose:\n");
+    printf("1 - I'm Candidate\n");
+    printf("2 - I'm Employer\n");
+    scanf("%d", &choice);
+    while (choice != 1 && choice != 2)
+    {
+        if (!choice)
+            exit(0);
+        printf("Please choose one of the option:\n");
+        printf("1 - I'm Candidate\n");
+        printf("2 - I'm Employer\n");
+        scanf("%d", &choice);
+    }
+    if (choice == 1)
+        candidentermenu();
+    else if (choice == 2)
+        employerentermenu();
 
+}
 
 int main()
 {
+    mainmenu();
+    printf("good");
     signincandid();
-    //signupcandid();
+    signupcandid();
     return 0;
     //for git example
     // sec change
