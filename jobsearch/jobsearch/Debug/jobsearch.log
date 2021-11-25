@@ -1,0 +1,19 @@
+﻿  Source.c
+C:\Users\PC\source\repos\jobsearch\jobsearch\Source.c(147,27): warning C4018: '<': signed/unsigned mismatch
+C:\Users\PC\source\repos\jobsearch\jobsearch\Source.c(161,18): warning C4013: 'getch' undefined; assuming extern returning int
+C:\Users\PC\source\repos\jobsearch\jobsearch\Source.c(185,1): warning C4090: 'initializing': different 'const' qualifiers
+C:\Users\PC\source\repos\jobsearch\jobsearch\Source.c(186,1): warning C4090: 'initializing': different 'const' qualifiers
+C:\Users\PC\source\repos\jobsearch\jobsearch\Source.c(257,9): warning C4013: 'gets' undefined; assuming extern returning int
+C:\Users\PC\source\repos\jobsearch\jobsearch\Source.c(322,1): warning C4090: 'initializing': different 'const' qualifiers
+C:\Users\PC\source\repos\jobsearch\jobsearch\Source.c(496,27): warning C4018: '<': signed/unsigned mismatch
+C:\Users\PC\source\repos\jobsearch\jobsearch\Source.c(515,29): warning C4013: 'checkifidexist' undefined; assuming extern returning int
+C:\Users\PC\source\repos\jobsearch\jobsearch\Source.c(525,29): warning C4013: 'checkpasswordtoid' undefined; assuming extern returning int
+C:\Users\PC\source\repos\jobsearch\jobsearch\Source.c(580,22): warning C4013: 'checkpassword' undefined; assuming extern returning int
+C:\Users\PC\source\repos\jobsearch\jobsearch\Source.c(551,10): warning C4101: 'string': unreferenced local variable
+C:\Users\PC\source\repos\jobsearch\jobsearch\Source.c(560,10): warning C4101: 'namefile': unreferenced local variable
+C:\Users\PC\source\repos\jobsearch\jobsearch\Source.c(730,23): warning C4018: '<': signed/unsigned mismatch
+C:\Users\PC\source\repos\jobsearch\jobsearch\Source.c(738,23): warning C4018: '<': signed/unsigned mismatch
+C:\Users\PC\source\repos\jobsearch\jobsearch\Source.c(852,10): warning C4101: 'retanswer': unreferenced local variable
+C:\Users\PC\source\repos\jobsearch\jobsearch\Source.c(509): warning C4172: returning address of local variable or temporary: id
+C:\Users\PC\source\repos\jobsearch\jobsearch\Source.c(1002): warning C4172: returning address of local variable or temporary: answer
+  jobsearch.vcxproj -> C:\Users\PC\source\repos\jobsearch\Debug\jobsearch.exe
